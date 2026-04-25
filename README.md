@@ -13,7 +13,7 @@
 - 문과 출신이지만 기술의 바깥 얼개 정도는 알아두고 싶은 분
 - 아이에게 "AI 가 뭐야?" 라는 질문을 받고 답이 막혔던 분
 
-엔지니어·연구자용은 아니에요. 그쪽 분들은 옆 책장의 [`llm-field-notes`](../llm-field-notes) 가 더 맞으실 거예요.
+엔지니어·연구자용은 아니에요. 그쪽 분들은 옆 책장의 [`llm-field-notes`](https://github.com/hojin12312/llm-field-notes) 가 더 맞으실 거예요.
 
 ## 읽는 법
 
@@ -40,7 +40,7 @@
 
 ## 도움 받은 곳
 
-- [`llm-field-notes`](../llm-field-notes) — 같은 저자의 개발자용 자매편. 더 깊이 들어가고 싶으시면 그쪽으로.
+- [`llm-field-notes`](https://github.com/hojin12312/llm-field-notes) — 같은 저자의 개발자용 자매편. 더 깊이 들어가고 싶으시면 그쪽으로.
 
 ## 라이선스
 
