@@ -44,4 +44,10 @@
 
 ## 라이선스
 
-(미정 — 본문 완성 후 결정)
+© 2026 호진. 이 책은 [**CC BY-NC-SA 4.0**](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ko) 라이선스에 따라 배포됩니다.
+
+자유롭게 공유·인용·번역하셔도 됩니다 (출처 표시 필수). 다만 영리적으로 사용하거나, 파생 작품을 다른 라이선스로 배포하는 건 허용되지 않아요.
+
+---
+
+*이 책은 [Claude Code](https://claude.ai/code) (`claude-opus-4-7`) 와 함께 작성되었습니다.*
