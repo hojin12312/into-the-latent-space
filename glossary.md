@@ -31,6 +31,7 @@
 
 ## ㅇ
 
+- **에이전트** (agent) — 도구를 쓸 수 있도록 LLM 에 몸(하네스) 을 붙인 것. 글만 만드는 LLM 과 달리 파일을 열고 명령을 실행하는 등 실제 행동을 함. → [09화](chapters/09-agents.md)
 - **온도** (temperature) — 모델이 답을 얼마나 다양하게 뽑을지 조절하는 값. 0 이면 항상 1등 후보만 뽑고(단조로움), 높을수록 다양해짐(창의적이거나 헛소리). → [04화](chapters/04-inference.md)
 
 ## ㅋ
@@ -44,14 +45,18 @@
 ## ㅍ
 
 - **파라미터** (parameter) — 모델 안에 들어 있는 학습 가능한 숫자. 학습 중에 머리카락 한 올씩 조정되는 게 바로 이 숫자들. GPT-3 약 1,750억 개. → [03화](chapters/03-training.md)
+- **프롬프트** (prompt) — 우리가 AI 에게 입력하는 모든 글. 어떻게 묻느냐(역할·맥락·예시·출력 형식 깔기) 에 따라 답의 품질이 극적으로 달라짐. → [08화](chapters/08-prompting.md)
 
 ## ㅎ
 
+- **하네스** (harness) — 원래 말의 마구. 여기선 LLM 을 감싸서 외부 세계와 연결해주는 실행 환경. 도구 호출·반복 루프·안전 장치를 담당. → [09화](chapters/09-agents.md)
+- **학습 컷오프** (knowledge cutoff) — 모델이 학습한 데이터의 마지막 시점. 그 이후 일은 모델이 모르고, 모델 자신도 자기가 어디까지 알고 있는지 잘 모름. → [10화](chapters/10-limits.md)
 - **환각** (hallucination) — AI 가 사실이 아닌 걸 사실인 것처럼 자신만만하게 만들어내는 현상. 거짓말이 아니라 "다음 토큰 룰렛" 의 부산물. → [06화](chapters/06-hallucination.md)
 
 ## A–Z
 
 - **API** (Application Programming Interface) — 챗봇 화면 대신 서버에 직접 요청해서 AI 를 쓰는 방식. 사용량(토큰 수) 기반으로 과금. → [02화](chapters/02-tokens.md)
+- **Chain-of-Thought** (생각의 사슬) — 모델이 풀이 과정을 한 단계씩 글로 풀어 쓰면서 답으로 가는 방식. "단계별로 생각해줘" 한 마디만 추가해도 정답률이 올라감. → [08화](chapters/08-prompting.md)
 - **GPU** (Graphics Processing Unit) — 원래 게임 그래픽용으로 만든 칩이지만 AI 학습에 가장 잘 맞아 핵심 인프라가 된 칩. → [03화](chapters/03-training.md)
 - **LLM** (Large Language Model, 대규모 언어 모델) — 인터넷 규모의 글을 학습해 다음에 올 단어를 짐작하는, 숫자를 수천억 개 가진 거대한 언어 흉내쟁이. ChatGPT·Claude 같은 챗봇의 본체. → [01화](chapters/01-next-word-game.md)
 - **RAG** (Retrieval-Augmented Generation, 검색으로 보강하는 답 생성) — 외부 검색 엔진 등으로 사실 자료를 찾아 모델 입력에 끼워 넣어서 환각을 줄이는 방식. → [06화](chapters/06-hallucination.md)
