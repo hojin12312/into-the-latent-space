@@ -25,18 +25,18 @@
 
 | # | 제목 | 한 줄 |
 |---|---|---|
-| 00 | [들어가며](chapters/00-prologue.md) | 왜 AI 를 알아야 하는가 |
+| 00 | [들어가며](chapters/00-prologue.md) | "AI 가 뭐야?" 라는 질문 앞에서 함께 첫 발자국을 |
 | 01 | [다음 단어 맞추기 게임](chapters/01-next-word-game.md) | 사실 ChatGPT 는 게임을 하고 있어요 |
-| 02 | [토큰: AI 가 보는 세상의 단위](chapters/02-tokens.md) | AI 는 글자를 보지 않아요 |
-| 03 | [학습: 도서관을 통째로 읽는 법](chapters/03-training.md) | AI 가 똑똑해진 방법 |
-| 04 | [답이 나오는 순간](chapters/04-inference.md) | 한 글자씩 던지는 룰렛 |
-| 05 | [컨텍스트 윈도우](chapters/05-context-window.md) | AI 의 단기 기억 |
-| 06 | [환각: 자신있게 거짓말하는 이유](chapters/06-hallucination.md) | 왜 AI 는 모른다고 안 할까 |
-| 07 | [사람의 피드백으로 길들이기](chapters/07-rlhf.md) | 친절한 AI 의 비밀 |
-| 08 | [프롬프트: 부탁의 기술](chapters/08-prompting.md) | 잘 시키면 잘 해요 |
-| 09 | [에이전트: 손과 발이 생긴 AI](chapters/09-agents.md) | 글쓰기 너머로 |
-| 10 | [AI 가 못하는 것들](chapters/10-limits.md) | 한계와 책임 |
-| 99 | [나오며](chapters/99-epilogue.md) | latent space 라는 산책 |
+| 02 | [토큰: AI 가 보는 세상의 단위](chapters/02-tokens.md) | "딸기에 r 이 몇 개?" — AI 가 자주 틀리는 이유 |
+| 03 | [학습: 도서관을 통째로 읽는 법](chapters/03-training.md) | 빈칸 채우기 시험을 수십억 번 |
+| 04 | [답이 나오는 순간](chapters/04-inference.md) | 한 토큰씩 던지는 룰렛 |
+| 05 | [컨텍스트 윈도우](chapters/05-context-window.md) | AI 의 책상에는 너비가 있어요 |
+| 06 | [환각: 자신있게 거짓말하는 이유](chapters/06-hallucination.md) | 환각은 버그가 아니에요 |
+| 07 | [사람의 피드백으로 길들이기](chapters/07-rlhf.md) | 친절은 누군가의 노동으로 만들어졌어요 |
+| 08 | [프롬프트: 부탁의 기술](chapters/08-prompting.md) | 잘 부탁하면 답이 100배 좋아져요 |
+| 09 | [에이전트: 손과 발이 생긴 AI](chapters/09-agents.md) | 같은 LLM, 다른 몸 |
+| 10 | [AI 가 못하는 것들](chapters/10-limits.md) | 한계와 책임을 정직하게 |
+| 99 | [나오며](chapters/99-epilogue.md) | 우리가 사실 latent space 를 산책했어요 |
 
 ## 도움 받은 곳
 
