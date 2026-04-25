@@ -21,6 +21,10 @@
 
 - **경사하강법** (gradient descent) — 산 정상에서 안개 속을 더듬어 내려가듯, 모델이 한 발씩 "더 낮은(더 잘 맞는) 방향" 을 찾아가는 학습 방법. 핵심은 "틀린 만큼 그쪽으로 움직이지 마." → [03화](chapters/03-training.md)
 
+## ㅂ
+
+- **베이스 모델** (base model) — 사전학습만 마친 가공 안 된 모델. 친절하지 않고 거칠며, 인터넷 평균을 그대로 흉내 냄. → [07화](chapters/07-rlhf.md)
+
 ## ㅅ
 
 - **사전학습** (pretraining) — 모델을 본격적으로 쓰기 전, 인터넷의 거대한 글 더미로 시키는 첫 학습. 빈칸 채우기 시험을 수십억 번 반복. → [03화](chapters/03-training.md)
@@ -28,6 +32,10 @@
 ## ㅇ
 
 - **온도** (temperature) — 모델이 답을 얼마나 다양하게 뽑을지 조절하는 값. 0 이면 항상 1등 후보만 뽑고(단조로움), 높을수록 다양해짐(창의적이거나 헛소리). → [04화](chapters/04-inference.md)
+
+## ㅋ
+
+- **컨텍스트 윈도우** (context window) — 모델이 한 번에 한꺼번에 볼 수 있는 글의 양. 토큰 수로 매겨짐. 그 너머의 글은 책상에서 떨어지듯 잘려나감. → [05화](chapters/05-context-window.md)
 
 ## ㅌ
 
@@ -37,8 +45,14 @@
 
 - **파라미터** (parameter) — 모델 안에 들어 있는 학습 가능한 숫자. 학습 중에 머리카락 한 올씩 조정되는 게 바로 이 숫자들. GPT-3 약 1,750억 개. → [03화](chapters/03-training.md)
 
+## ㅎ
+
+- **환각** (hallucination) — AI 가 사실이 아닌 걸 사실인 것처럼 자신만만하게 만들어내는 현상. 거짓말이 아니라 "다음 토큰 룰렛" 의 부산물. → [06화](chapters/06-hallucination.md)
+
 ## A–Z
 
 - **API** (Application Programming Interface) — 챗봇 화면 대신 서버에 직접 요청해서 AI 를 쓰는 방식. 사용량(토큰 수) 기반으로 과금. → [02화](chapters/02-tokens.md)
 - **GPU** (Graphics Processing Unit) — 원래 게임 그래픽용으로 만든 칩이지만 AI 학습에 가장 잘 맞아 핵심 인프라가 된 칩. → [03화](chapters/03-training.md)
 - **LLM** (Large Language Model, 대규모 언어 모델) — 인터넷 규모의 글을 학습해 다음에 올 단어를 짐작하는, 숫자를 수천억 개 가진 거대한 언어 흉내쟁이. ChatGPT·Claude 같은 챗봇의 본체. → [01화](chapters/01-next-word-game.md)
+- **RAG** (Retrieval-Augmented Generation, 검색으로 보강하는 답 생성) — 외부 검색 엔진 등으로 사실 자료를 찾아 모델 입력에 끼워 넣어서 환각을 줄이는 방식. → [06화](chapters/06-hallucination.md)
+- **RLHF** (Reinforcement Learning from Human Feedback, 사람의 피드백을 통한 강화학습) — 모델이 만든 두 답 중 사람이 더 좋은 답을 골라주고, 그 정보로 모델을 미세 조정하는 작업. ChatGPT 의 친절함을 만든 두 번째 학습 단계. → [07화](chapters/07-rlhf.md)
