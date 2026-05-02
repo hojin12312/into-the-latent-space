@@ -4,16 +4,16 @@
 
 당신은 이미 매일 AI 와 대화하고 있어요. 그런데 누가 옆에서 "그래서 그거 어떻게 동작해?" 라고 물으면 — 한 줄로 답할 수 있나요?
 
-이 책은 그 한 줄을 만들어드리는 책이에요. **수식 없고, 코드 없고, "딥러닝"이라는 단어를 쓰지 않고도** 끝까지 읽을 수 있게 썼습니다. 대신 비유가 많아요. 끝말잇기, 도서관, 룰렛, 알바생, 신입사원, 강아지 훈련 — 일상에서 본 적 있는 풍경으로 AI 의 안쪽을 보여드릴게요.
+이 글은 그 한 줄을 만들어드리는 자료예요. **수식 없고, 코드 없고, "딥러닝"이라는 단어를 쓰지 않고도** 끝까지 읽을 수 있게 썼습니다. 대신 비유가 많아요. 끝말잇기, 도서관, 룰렛, 알바생, 신입사원, 강아지 훈련 — 일상에서 본 적 있는 풍경으로 AI 의 안쪽을 보여드릴게요.
 
-## 누구를 위한 책인가요
+## 누구를 위한 글인가요
 
 - ChatGPT 를 한두 번 써봤지만 "이게 진짜 뭐 하는 건지" 궁금하셨던 분
 - 친구가 AI 이야기를 할 때 끄덕이긴 하지만 속으로는 갸웃했던 분
 - 문과 출신이지만 기술의 바깥 얼개 정도는 알아두고 싶은 분
 - 아이에게 "AI 가 뭐야?" 라는 질문을 받고 답이 막혔던 분
 
-엔지니어·연구자용은 아니에요. 그쪽 분들은 옆 책장의 [`llm-field-notes`](https://github.com/hojin12312/llm-field-notes) (재편본, 잘 정리됨) 또는 그 원본인 [`lecture-claude-code`](https://github.com/hojin12312/lecture-claude-code) (부록이 더 풍부) 가 더 맞으실 거예요.
+엔지니어·연구자용은 아니에요. 그쪽 분들은 옆자리의 [`llm-field-notes`](https://github.com/hojin12312/llm-field-notes) (재편본, 잘 정리됨) 또는 그 원본인 [`lecture-claude-code`](https://github.com/hojin12312/lecture-claude-code) (부록이 더 풍부) 가 더 맞으실 거예요.
 
 ## 읽는 법
 
@@ -45,10 +45,10 @@
 
 ## 라이선스
 
-© 2026 호진. 이 책은 [**CC BY-NC-SA 4.0**](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ko) 라이선스에 따라 배포됩니다.
+© 2026 호진. 이 자료는 [**CC BY-NC-SA 4.0**](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ko) 라이선스에 따라 배포됩니다.
 
 자유롭게 공유·인용·번역하셔도 됩니다 (출처 표시 필수). 다만 영리적으로 사용하거나, 파생 작품을 다른 라이선스로 배포하는 건 허용되지 않아요.
 
 ---
 
-*이 책은 [Claude Code](https://claude.ai/code) (`claude-opus-4-7`) 와 함께 작성되었습니다.*
+*이 글은 [Claude Code](https://claude.ai/code) (`claude-opus-4-7`) 와 함께 작성되었습니다.*
