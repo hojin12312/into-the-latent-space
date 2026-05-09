@@ -77,7 +77,7 @@ ChatGPT(웹 페이지 버전) 는 글을 주고받는 가벼운 몸을 입었어
 
 "비서·인턴" 비유로 시작했지만, 사실 이 비서는 사람보다 훨씬 빠르게 일해요. 우리가 한 번 부탁하면 — 1초 안에 수십 번의 주문서를 작성하고, 수십 개의 파일을 읽고, 결과를 종합해서 답을 내요. 그 속도 때문에 사람 비서로는 상상하기 어려운 일을 해내요. 다만 — 사람 비서와 달리 잘못된 판단이 일어났을 때 그걸 자기가 알아채진 못해요. 환각(6화) 이 손에 도구가 붙어 일어나면, 단순히 "잘못된 글" 이 아니라 "잘못된 행동" 이 돼요. 그래서 손이 큰 비서일수록, 외부의 눈으로 한 번씩 점검하는 장치가 필요해요. 사람이 직접 보거나, 점검 전용 AI 를 옆에 붙이는 식인데 — 어느 쪽이든 핵심은 "자기가 한 일을 자기가 검증하지 않는다" 예요.
 
-> **더 깊이 들어가려면**: 실제 에이전트인 Claude Code 가 어떻게 설정되는지 — `CLAUDE.md` · Hooks · Skills 라는 세 축 — 는 [`claude-code`](https://github.com/hojin12312/lecture-claude-code/blob/main/appendix/claude-code.md) 부록에서 자세히 다뤄요.
+> **더 깊이 들어가려면**: 실제 에이전트인 Claude Code 가 어떻게 설정되는지 — `CLAUDE.md` · Hooks · Skills 라는 세 축 — 는 [`claude-code-3-axes`](https://github.com/hojin12312/llm-field-notes/blob/main/appendix/tools/claude-code-3-axes.md) 부록에서 자세히 다뤄요.
 
 ## 한 줄 요약
 

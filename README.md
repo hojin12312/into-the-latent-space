@@ -13,7 +13,7 @@
 - 문과 출신이지만 기술의 바깥 얼개 정도는 알아두고 싶은 분
 - 아이에게 "AI 가 뭐야?" 라는 질문을 받고 답이 막혔던 분
 
-엔지니어·연구자용은 아니에요. 그쪽 분들은 옆자리의 [`llm-field-notes`](https://github.com/hojin12312/llm-field-notes) (재편본, 잘 정리됨) 또는 그 원본인 [`lecture-claude-code`](https://github.com/hojin12312/lecture-claude-code) (부록이 더 풍부) 가 더 맞으실 거예요.
+엔지니어·연구자용은 아니에요. 그쪽 분들은 옆자리의 [`llm-field-notes`](https://github.com/hojin12312/llm-field-notes) 가 더 맞으실 거예요.
 
 ## 읽는 법
 
@@ -40,8 +40,7 @@
 
 ## 도움 받은 곳
 
-- [`llm-field-notes`](https://github.com/hojin12312/llm-field-notes) — 같은 저자의 개발자용 자매편(재편본). theory · hardware · tools 3개 클러스터로 정리됨.
-- [`lecture-claude-code`](https://github.com/hojin12312/lecture-claude-code) — 위 자매편의 원본 강의안. RAG·에이전트 프레임워크·LLM 평가 같은 심화 부록이 추가로 들어 있음. 본편 챕터의 "더 깊이 들어가려면" 링크들이 모두 이쪽을 가리켜요.
+- [`llm-field-notes`](https://github.com/hojin12312/llm-field-notes) — 같은 저자의 개발자용 자매편. theory · hardware · tools 3개 클러스터로 정리됨. 본편 챕터의 "더 깊이 들어가려면" 링크들이 이쪽을 가리켜요.
 
 ## 라이선스
 

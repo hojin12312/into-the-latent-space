@@ -56,7 +56,7 @@ RLHF 는 모델을 친절하게 만들지만, 부작용도 있어요.
 
 "강아지 훈련" 비유는 친근하지만, 사람과 모델 사이의 차이가 하나 있어요. 강아지는 같은 명령을 들으면 거의 같은 반응을 해요. 그런데 모델은 4화에서 본 룰렛 때문에 같은 입력에도 다른 답을 내요. 그러니까 RLHF 는 "어떤 한 답" 을 만들도록 가르치는 게 아니라 "이런 톤의 답이 더 자주 나오도록" 확률을 미세하게 조정하는 작업이에요. 길들이기보다는 — 이쪽 방향으로 흐르도록 강의 물길을 살짝 깎는 일에 가까워요.
 
-> **더 깊이 들어가려면**: 친절함이 도리어 모델을 약하게 만드는 "alignment tax", 너무 자주 거절하는 over-refusal, 모델이 평가 상황을 알아채는 alignment faking 같은 안전 정렬의 어두운 면은 [`safety-alignment`](https://github.com/hojin12312/lecture-claude-code/blob/main/appendix/safety-alignment.md) 부록에서 자세히 다뤄요.
+> **더 깊이 들어가려면**: 친절함이 도리어 모델을 약하게 만드는 "alignment tax", 너무 자주 거절하는 over-refusal, 모델이 평가 상황을 알아채는 alignment faking 같은 안전 정렬의 어두운 면은 [`safety-alignment`](https://github.com/hojin12312/llm-field-notes/blob/main/appendix/theory/safety-alignment.md) 부록에서 자세히 다뤄요.
 
 ## 한 줄 요약
 
