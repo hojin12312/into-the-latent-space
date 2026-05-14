@@ -36,6 +36,7 @@
 | 08 | [프롬프트: 부탁의 기술](chapters/08-prompting.md) | 잘 부탁하면 답이 100배 좋아져요 |
 | 09 | [에이전트: 손과 발이 생긴 AI](chapters/09-agents.md) | 같은 LLM, 다른 몸 |
 | 10 | [AI 가 못하는 것들](chapters/10-limits.md) | 한계와 책임을 정직하게 |
+| 11 | [빌려 쓴 똑똑함](chapters/11-technical-debt.md) | 빠르게 빌려준 만큼 이자가 붙어요 |
 | 99 | [나오며](chapters/99-epilogue.md) | 우리가 사실 latent space 를 산책했어요 |
 
 ## 도움 받은 곳
