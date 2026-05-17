@@ -1,0 +1,51 @@
+<!DOCTYPE html><html lang="ko"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="책 만 권을 읽힌다는 것"><meta name="generator" content="Astro v5.18.1"><title>03. 학습 — Into the Latent Space</title><!-- Prevent dark-mode flash: run before paint --><script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('theme');
+          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          var theme = stored || (prefersDark ? 'dark' : 'light');
+          document.documentElement.dataset.theme = theme;
+        } catch (e) {
+          document.documentElement.dataset.theme = 'light';
+        }
+      })();
+    </script><link rel="stylesheet" href="/into-the-latent-space/_astro/_slug_.CYQZ5mMh.css"></head> <body> <div class="progress-bar" id="progress-bar"></div> <nav class="topnav"> <a class="topnav__brand" href="/into-the-latent-space">Into the Latent Space</a> <div class="topnav__right"> <a class="topnav__link" href="/into-the-latent-space">차례</a> <a class="topnav__sister" href="https://hojin12312.github.io/llm-field-notes/">자매편 · 개발자용</a> <button class="theme-toggle" id="theme-toggle" aria-label="테마 전환"> <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path> </svg> <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="12" cy="12" r="4"></circle> <line x1="12" y1="2" x2="12" y2="5"></line> <line x1="12" y1="19" x2="12" y2="22"></line> <line x1="4.93" y1="4.93" x2="7.05" y2="7.05"></line> <line x1="16.95" y1="16.95" x2="19.07" y2="19.07"></line> <line x1="2" y1="12" x2="5" y2="12"></line> <line x1="19" y1="12" x2="22" y2="12"></line> <line x1="4.93" y1="19.07" x2="7.05" y2="16.95"></line> <line x1="16.95" y1="7.05" x2="19.07" y2="4.93"></line> </svg> </button> </div> </nav> <main>  <article> <header class="chapter-header"> <div class="chapter-header__num">CHAPTER 03</div> <h1 class="chapter-header__title">학습</h1> <p class="chapter-header__sub">책 만 권을 읽힌다는 것</p> </header> <div class="prose"> <h1 id="03-학습-도서관을-통째로-읽는-법">03. 학습: 도서관을 통째로 읽는 법</h1>
+<p>GPT-4 정도 되는 AI 한 대를 만드는 데 든 전기료가 작은 지방 도시 한 달치 전기 사용량보다 많을 수 있다는 거 — 들어보셨나요? 과장이 아니에요. 진짜로 그래요.</p>
+<p>AI 가 "똑똑해진다" 는 게 도대체 무슨 일이기에 그렇게 많은 에너지가 필요한 걸까요? 사실 그 안쪽에서 일어나는 일은 의외로 단순합니다. <strong>빈칸 채우기 시험</strong>, 그것도 같은 시험을 어처구니 없는 횟수로 반복하는 일이에요.</p>
+<h2 id="학습--끝없는-빈칸-채우기">학습 = 끝없는 빈칸 채우기</h2>
+<p>ChatGPT 같은 모델을 만드는 첫 단계를 <strong>사전학습</strong>(pretraining, 본격적으로 쓰기 전에 미리 시키는 큰 학습) 이라고 불러요. 인터넷에서 긁어온 어마어마한 양의 글을 모아두고, 그 글들에서 일부러 한 단어씩(정확히는 한 토큰씩) 가린 뒤, 모델한테 그 빈칸을 맞춰보라고 시키는 일이에요.</p>
+<div class="mermaid">flowchart TD
+    A["원문: 뉴턴은 사과가 떨어지는 걸 보고 &#x3C;b>만유인력&#x3C;/b>을 발견했다"]
+    A --> B["빈칸 만들기: 뉴턴은 사과가 떨어지는 걸 보고 _____ 을 발견했다"]
+    B --> C["모델 추측: &#x3C;b>중력&#x3C;/b>"]
+    C --> D{"정답과 비교&#x3C;br/>(정답: 만유인력)"}
+    D -->|틀림| E["모델 안의 숫자들을&#x3C;br/>머리카락 한 올만큼 조정"]
+    E --> F["다른 빈칸으로 이동"]
+    F -. 수십억 번 반복 .-> A</div>
+<p>이걸 한 번 한다고 똑똑해지진 않아요. 같은 일을 <strong>수십억 번</strong> 반복합니다. 매번 한 글자 어긋날 때마다 모델 안의 숫자들이 머리카락 한 올만큼씩 움직여요. 그게 천 번, 만 번, 십억 번 쌓이면 — 어느 순간 모델은 "뉴턴" 다음에 "만유인력" 이 나올 확률이 높다는 걸 자연스럽게 알게 돼요. 시험을 본 게 아니라, 패턴을 몸에 새긴 거예요.</p>
+<h2 id="그래서-파라미터-가-뭔가요">그래서 "파라미터" 가 뭔가요</h2>
+<p>여기서 등장하는 게 <strong>파라미터</strong>(parameter, 모델 안에 들어 있는 학습 가능한 숫자) 예요. 사전학습이 진행되면서 살짝씩 움직이는 게 바로 이 숫자들이에요.</p>
+<p>GPT-3 는 파라미터가 약 1,750억 개. GPT-4 는 정확히 알려져 있지 않지만 1조 개를 넘는 것으로 추정돼요. 이 숫자들이 다 같이 어우러져서 "다음에 뭐가 올지" 의 확률을 만들어요. 한 사람의 뇌에는 시냅스가 약 100조 개 있다고 하니까 — 아직 사람보다는 작아요. 하지만 그 차이가 빠르게 좁혀지고 있죠.</p>
+<pre class="astro-code astro-code-themes github-light github-dark-dimmed" style="background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>[파라미터 수 비교]</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>GPT-3 (2020)      ▏                          1,750억 개</span></span>
+<span class="line"><span>GPT-4 (2023)      █                          1조 개+ (추정)</span></span>
+<span class="line"><span>사람의 시냅스     ███████████████████████    약 100조 개</span></span>
+<span class="line"><span>                                                ↑ 아직 사람보다 작지만</span></span>
+<span class="line"><span>                                                  차이가 빠르게 좁혀지고 있어요</span></span></code></pre>
+<h2 id="그래서-그렇게-비싼-거예요">그래서 그렇게 비싼 거예요</h2>
+<p>빈칸 채우기 시험을 수십억 번 반복하면서 1조 개의 숫자를 미세하게 조정하려면, 어마어마한 컴퓨터가 필요해요. 보통 수천에서 수만 대의 <strong>GPU</strong>(Graphics Processing Unit, 원래 게임 그래픽용으로 만들어졌지만 AI 학습에 가장 잘 맞는 칩) 가 동시에 돌아가요. 이 GPU 들이 몇 주에서 몇 달간 쉬지 않고 돌아가요. 결과는 — 작은 도시 한 달치의 전기.</p>
+<p>GPT-4 한 번 학습하는 데 들어간 비용이 1억 달러를 넘었다는 추정도 있어요. 우리가 무료로 ChatGPT 를 쓰고 있는 그 모델이, 그렇게 비싸게 만들어진 거예요. 그래서 새 모델을 만들 수 있는 회사가 전 세계에 손에 꼽혀요. 돈이 많아야 만들 수 있어요. AI 가 "민주적인 기술" 인지 "소수가 독점하는 기술" 인지에 대한 논쟁이 끊이지 않는 이유가 여기 있어요.</p>
+<h2 id="깜짝-놀랄-만한-한-가지">깜짝 놀랄 만한 한 가지</h2>
+<p>이 어마어마한 학습이 사실 <strong>"틀렸을 때 살짝 조정한다"</strong> 는 한 가지 단순한 규칙으로만 굴러간다는 점이 가장 신기한 부분이에요. 누가 옆에서 "이 답이 맞다, 저 답이 틀리다" 라고 하나하나 알려주는 게 아니에요. 모델이 추측하면 정답(원문) 과 자동으로 비교돼서, 차이가 있으면 그만큼 조정. 그게 다예요.</p>
+<p>이걸 학계 용어로 <strong>경사하강법</strong>(gradient descent, 산 정상에서 안개 속을 더듬어 내려가듯 한 발씩 더 낮은 쪽을 찾아가는 방식) 이라고 불러요. 이름이 거창하지만 핵심은 — "틀린 만큼 그쪽으로 움직이지 마." 그게 다예요. 이 단순한 규칙이 데이터의 양과 모델의 크기를 만나면, 어느 순간 우리가 보기에 마법 같은 결과가 나와요. 사람들이 AI 를 "마법 같다" 고 말하는 건 이 단순함이 어떻게 이런 결과를 만드는지 직관으로 와닿지 않아서예요. 솔직히 — 만든 사람들도 다 이해하진 못해요.</p>
+<h2 id="비유에는-한계가-있어요">비유에는 한계가 있어요</h2>
+<p>"빈칸 채우기 시험" 비유는 가장 핵심적인 학습 방식만 그린 거예요. 사실 그 위에 사람의 피드백을 받는 단계, 도구 사용을 학습하는 단계 등 여러 층이 더 쌓여요. 일단 지금은 "AI 의 첫 학습은 빈칸 채우기" 라는 큰 그림만 잡으시면 충분해요. 사람의 피드백 부분은 7화에서 따로 다룰게요.</p>
+<h2 id="한-줄-요약">한 줄 요약</h2>
+<p>AI 의 학습은 거대한 도서관에서 빈칸 채우기 시험을 수십억 번 반복하는 일이고, 그때마다 모델 안의 수천억 개 숫자(파라미터) 가 머리카락 한 올씩 미세하게 움직여서 패턴을 몸에 새기는 거예요.</p>
+<h2 id="다음-화">다음 화</h2>
+<p>이렇게 학습이 끝난 모델은 어떻게 답을 만들까요? 한 단어씩 만들어낸다는 건 알고 있는데 — 그 한 단어는 정확히 어떻게 골라지는 걸까요?</p>
+<p><a href="/into-the-latent-space/chapters/04-inference">04화 — 답이 나오는 순간</a></p> </div> <nav class="chapter-nav"> <a class="chapter-nav__item" href="/into-the-latent-space/chapters/02-tokens"> <span class="chapter-nav__label">← 이전 화</span> <span class="chapter-nav__title">02. 토큰</span> </a> <a class="chapter-nav__item chapter-nav__item--next" href="/into-the-latent-space/chapters/04-inference"> <span class="chapter-nav__label">다음 화 →</span> <span class="chapter-nav__title">04. 추론</span> </a> </nav> </article>  </main> <footer class="site-footer"> <p>
+© 2026 hojin12312 · CC BY-NC-SA 4.0 ·
+<a href="https://github.com/hojin12312/into-the-latent-space" target="_blank" rel="noopener">GitHub</a> ·
+<a href="https://hojin12312.github.io/llm-field-notes/">자매편 (개발자용)</a> </p> </footer> <!-- Theme toggle behavior --> <script type="module" src="/into-the-latent-space/_astro/BookLayout.astro_astro_type_script_index_0_lang.Bjw9Ieg0.js"></script> <!-- Reading progress bar (chapter pages only) --> <script type="module">const s=document.getElementById("progress-bar");if(s){const e=()=>{const t=document.documentElement,o=t.scrollTop,n=t.scrollHeight-t.clientHeight,c=n>0?o/n*100:0;s.style.width=c+"%"};window.addEventListener("scroll",e,{passive:!0}),window.addEventListener("resize",e),e()}</script> <!-- Mermaid render + theme-switch + Lightbox for code/diagrams --> <script type="module">const t=document.getElementById("theme-toggle");t?.addEventListener("click",()=>{const e=document.documentElement.dataset.theme==="dark"?"light":"dark";document.documentElement.dataset.theme=e;try{localStorage.setItem("theme",e)}catch{}});</script> </body> </html>

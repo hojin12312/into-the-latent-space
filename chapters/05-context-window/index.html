@@ -1,0 +1,66 @@
+<!DOCTYPE html><html lang="ko"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="한 번에 볼 수 있는 글의 범위"><meta name="generator" content="Astro v5.18.1"><title>05. 컨텍스트 윈도우 — Into the Latent Space</title><!-- Prevent dark-mode flash: run before paint --><script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('theme');
+          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          var theme = stored || (prefersDark ? 'dark' : 'light');
+          document.documentElement.dataset.theme = theme;
+        } catch (e) {
+          document.documentElement.dataset.theme = 'light';
+        }
+      })();
+    </script><link rel="stylesheet" href="/into-the-latent-space/_astro/_slug_.CYQZ5mMh.css"></head> <body> <div class="progress-bar" id="progress-bar"></div> <nav class="topnav"> <a class="topnav__brand" href="/into-the-latent-space">Into the Latent Space</a> <div class="topnav__right"> <a class="topnav__link" href="/into-the-latent-space">차례</a> <a class="topnav__sister" href="https://hojin12312.github.io/llm-field-notes/">자매편 · 개발자용</a> <button class="theme-toggle" id="theme-toggle" aria-label="테마 전환"> <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path> </svg> <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="12" cy="12" r="4"></circle> <line x1="12" y1="2" x2="12" y2="5"></line> <line x1="12" y1="19" x2="12" y2="22"></line> <line x1="4.93" y1="4.93" x2="7.05" y2="7.05"></line> <line x1="16.95" y1="16.95" x2="19.07" y2="19.07"></line> <line x1="2" y1="12" x2="5" y2="12"></line> <line x1="19" y1="12" x2="22" y2="12"></line> <line x1="4.93" y1="19.07" x2="7.05" y2="16.95"></line> <line x1="16.95" y1="7.05" x2="19.07" y2="4.93"></line> </svg> </button> </div> </nav> <main>  <article> <header class="chapter-header"> <div class="chapter-header__num">CHAPTER 05</div> <h1 class="chapter-header__title">컨텍스트 윈도우</h1> <p class="chapter-header__sub">한 번에 볼 수 있는 글의 범위</p> </header> <div class="prose"> <h1 id="05-컨텍스트-윈도우-ai-의-단기-기억">05. 컨텍스트 윈도우: AI 의 단기 기억</h1>
+<p>ChatGPT 와 한 시간쯤 길게 대화하다 보면 가끔 그런 순간이 와요. "어... 너 아까 내가 한 말 까먹었어?" 라고 묻고 싶어지는 순간. 답이 어느 순간 핀트가 안 맞고, 처음에 정해놓은 캐릭터를 잊은 것처럼 굴고. 단순한 느낌이 아니에요. <strong>진짜로 까먹은 거예요.</strong> 정말로요.</p>
+<p>AI 의 단기 기억에는 책상 너비 같은 한계가 있어요. 그 한계 너머로 이야기가 길어지면, 가장 오래된 부분부터 순서대로 떨어져 나가요.</p>
+<h2 id="ai-의-작업-책상">AI 의 작업 책상</h2>
+<p>ChatGPT 가 답을 만들 때 머릿속(정확히는 모델 입력) 에 들어 있는 모든 글을 — 한꺼번에 책상 위에 펼쳐 놓는다고 상상해보세요. 시스템 지시문, 우리 대화 첫 마디부터 마지막 마디, 그리고 지금 막 써 내려가는 답까지. 전부 다요.</p>
+<pre class="astro-code astro-code-themes github-light github-dark-dimmed" style="background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>[ChatGPT 의 책상]</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>  ──────────────────────────────────────────────────────────</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    [시스템 지시] 당신은 친절한 상담사…</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    [사용자] 안녕하세요</span></span>
+<span class="line"><span>    [어시스턴트] 네 안녕하세요, 어떻게 오셨어요</span></span>
+<span class="line"><span>    [사용자] 오늘 기분이 좋지 않아</span></span>
+<span class="line"><span>    [어시스턴트] 어떤 일이 있으셨나요</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    [사용자] ... (중간 생략) ...</span></span>
+<span class="line"><span>    [어시스턴트] ... (중간 생략) ...</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    [어시스턴트] (지금 쓰고 있는 답)</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>  ──────────────────────────────────────────────────────────</span></span>
+<span class="line"><span>              ↑ 책상 너비 = 컨텍스트 윈도우 ↑</span></span></code></pre>
+<p>이 책상의 너비가 바로 <strong>컨텍스트 윈도우</strong>(context window, 모델이 한 번에 한꺼번에 볼 수 있는 글의 양) 예요.</p>
+<h2 id="책상은-무한하지-않아요">책상은 무한하지 않아요</h2>
+<p>컨텍스트 윈도우의 크기는 토큰 수로 매겨져요(2화에서 본 그 토큰이에요). 모델마다 달라요. GPT-4o 가 12만 8천 토큰, Claude 의 최신 버전이 백만 토큰까지 늘어났어요. 백만 토큰이면 — 책 두 권 분량을 한꺼번에 펼쳐 놓을 수 있다는 뜻이에요. 굉장히 넓은 책상처럼 들리지만 — 코드 베이스 전체나 긴 회의록을 통째로 넣으면 금방 차요.</p>
+<pre class="astro-code astro-code-themes github-light github-dark-dimmed" style="background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>[책상 너비의 진화 — 3년 만에 250배]</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>2022 ChatGPT      ▏                                약 4천 토큰</span></span>
+<span class="line"><span>2024 GPT-4o       █                                약 12만 8천 토큰</span></span>
+<span class="line"><span>2025 Claude       █████████████████████████████    약 백만 토큰</span></span>
+<span class="line"><span>                                                      ↑ 책상은 커졌지만</span></span>
+<span class="line"><span>                                                        가운데가 흐릿해지는 새 골칫거리</span></span></code></pre>
+<p>책상이 차면 어떻게 될까요? <strong>가장 오래된 종이부터 책상에서 떨어져 나가요.</strong> ChatGPT 가 자동으로 정리해주는 게 아니라, 외부 시스템(다음 챕터에서 본격적으로 다룰 "하네스") 이 맨 앞부터 잘라내요. 그래서 길어지면 진짜로 까먹어요. 까먹는 게 아니라 — 책상에 안 보이게 된 거예요.</p>
+<h2 id="그런데-chatgpt-는-저를-기억하던데요">"그런데 ChatGPT 는 저를 기억하던데요?"</h2>
+<p>여기서 자연스러운 의문이 들어요. "ChatGPT 가 내 이름이 뭔지 기억해주던데요? 새 대화 시작해도?"</p>
+<p><strong>깜짝 놀랄 만한 한 가지</strong>가 여기 있어요. <strong>ChatGPT 본체는 사실 아무것도 기억하지 못해요.</strong> 우리가 보는 "기억 기능" 은 사실 <strong>외부 메모장</strong>이에요.</p>
+<p>이런 식으로 작동해요. 우리가 대화하다가 "내 이름은 호진이야" 같은 중요해 보이는 정보가 나오면, ChatGPT 의 시스템이 그걸 별도 메모장에 적어둬요(LLM 안이 아니라 평범한 데이터베이스에). 다음에 새 대화를 시작할 때, 그 메모장에 적힌 내용을 시스템 지시문 부분에 몰래 끼워 넣어요. ChatGPT 본체는 매번 새 대화를 시작할 때마다 그 메모장을 함께 읽어 들이면서 — 마치 자기가 기억하고 있던 것처럼 답해요.</p>
+<p>진짜 기억이 아니라, 책상 위에 매번 작은 메모지를 미리 올려놓는 트릭이에요. ChatGPT 는 매번 처음 보는 사람 행세를 하다가, 책상 위에 놓인 메모를 보고 "아 그래, 이 사람 호진님이지" 라고 자연스럽게 말하는 거예요.</p>
+<h2 id="길어진-책상의-새로운-골칫거리">길어진 책상의 새로운 골칫거리</h2>
+<p>기술이 발전하면서 책상은 계속 넓어지고 있어요. 2022년의 ChatGPT 는 약 4천 토큰이 한계였어요. 지금 Claude 는 백만 토큰. 250배 넓어진 셈이에요. 그런데 — 더 넓은 책상에는 새로운 골칫거리가 있어요.</p>
+<p>같은 책상 위라도, <strong>모델은 가장 가까운 종이를 가장 잘 보고, 멀리 있는 종이는 흐릿해져요.</strong> 그래서 긴 대화에서 "10분 전에 한 이야기" 의 정보가 책상에 분명히 남아 있어도 잘 못 찾는 현상이 일어나요. 영어권 연구자들은 이걸 "lost in the middle" 이라고 불러요. 책상 양 끝(시작과 끝) 의 정보는 잘 챙기는데, 가운데가 흐릿해진다는 뜻이에요. 사람이 긴 회의록을 읽을 때 처음과 끝만 기억하고 가운데가 가물가물해지는 것과 비슷해요.</p>
+<h2 id="비유에는-한계가-있어요">비유에는 한계가 있어요</h2>
+<p>"책상" 비유는 컨텍스트 윈도우의 양적 한계를 보여주지만, 실제로 모델 안쪽에서 일어나는 일은 종이를 펼치는 일이 아니에요. 모든 토큰 사이의 관계를 한꺼번에 계산하는 일에 가까워요. 그래서 책상이 두 배 넓어지면 단순히 종이가 두 배 들어가는 게 아니라, 처리해야 할 계산량이 네 배로 늘어나요(토큰 사이의 모든 짝을 계산해야 하니까요). 책상을 무한히 넓히지 못하는 건 종이가 부족해서가 아니라, 그 모든 짝을 계산하는 비용이 폭발적으로 늘어나기 때문이에요.</p>
+<blockquote>
+<p><strong>더 깊이 들어가려면</strong>: 그 폭발적 비용을 누그러뜨리는 핵심 기법인 KV 캐시가 무엇이고 왜 그것이 모델 운영 비용의 80% 이상을 결정하는지는 <a href="https://github.com/hojin12312/llm-field-notes/blob/main/appendix/theory/kv-cache.md"><code>kv-cache</code></a> 부록에서 자세히 다뤄요.</p>
+</blockquote>
+<h2 id="한-줄-요약">한 줄 요약</h2>
+<p>AI 의 단기 기억은 한 번에 펼칠 수 있는 책상 너비만큼만 가능하고, 그 너머는 가장 오래된 것부터 떨어져 나가요. ChatGPT 의 "기억 기능" 은 본체가 아니라 외부에서 메모를 건네주는 트릭이에요.</p>
+<h2 id="다음-화">다음 화</h2>
+<p>기억력이 짧은 것까진 알겠는데, 더 이상한 일도 있어요. AI 가 모르는 걸 자신만만하게 답하는 일. 있지도 않은 사실을 정성스럽게 만들어내는 일. 그건 거짓말일까요, 다른 무엇일까요?</p>
+<p><a href="/into-the-latent-space/chapters/06-hallucination">06화 — 환각: 자신있게 거짓말하는 이유</a></p> </div> <nav class="chapter-nav"> <a class="chapter-nav__item" href="/into-the-latent-space/chapters/04-inference"> <span class="chapter-nav__label">← 이전 화</span> <span class="chapter-nav__title">04. 추론</span> </a> <a class="chapter-nav__item chapter-nav__item--next" href="/into-the-latent-space/chapters/06-hallucination"> <span class="chapter-nav__label">다음 화 →</span> <span class="chapter-nav__title">06. 환각</span> </a> </nav> </article>  </main> <footer class="site-footer"> <p>
+© 2026 hojin12312 · CC BY-NC-SA 4.0 ·
+<a href="https://github.com/hojin12312/into-the-latent-space" target="_blank" rel="noopener">GitHub</a> ·
+<a href="https://hojin12312.github.io/llm-field-notes/">자매편 (개발자용)</a> </p> </footer> <!-- Theme toggle behavior --> <script type="module" src="/into-the-latent-space/_astro/BookLayout.astro_astro_type_script_index_0_lang.Bjw9Ieg0.js"></script> <!-- Reading progress bar (chapter pages only) --> <script type="module">const s=document.getElementById("progress-bar");if(s){const e=()=>{const t=document.documentElement,o=t.scrollTop,n=t.scrollHeight-t.clientHeight,c=n>0?o/n*100:0;s.style.width=c+"%"};window.addEventListener("scroll",e,{passive:!0}),window.addEventListener("resize",e),e()}</script> <!-- Mermaid render + theme-switch + Lightbox for code/diagrams --> <script type="module">const t=document.getElementById("theme-toggle");t?.addEventListener("click",()=>{const e=document.documentElement.dataset.theme==="dark"?"light":"dark";document.documentElement.dataset.theme=e;try{localStorage.setItem("theme",e)}catch{}});</script> </body> </html>

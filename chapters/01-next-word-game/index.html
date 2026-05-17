@@ -1,0 +1,68 @@
+<!DOCTYPE html><html lang="ko"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="ChatGPT 의 본질은 한 단어씩 찍는 일"><meta name="generator" content="Astro v5.18.1"><title>01. 다음 단어 맞추기 게임 — Into the Latent Space</title><!-- Prevent dark-mode flash: run before paint --><script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('theme');
+          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          var theme = stored || (prefersDark ? 'dark' : 'light');
+          document.documentElement.dataset.theme = theme;
+        } catch (e) {
+          document.documentElement.dataset.theme = 'light';
+        }
+      })();
+    </script><link rel="stylesheet" href="/into-the-latent-space/_astro/_slug_.CYQZ5mMh.css"></head> <body> <div class="progress-bar" id="progress-bar"></div> <nav class="topnav"> <a class="topnav__brand" href="/into-the-latent-space">Into the Latent Space</a> <div class="topnav__right"> <a class="topnav__link" href="/into-the-latent-space">차례</a> <a class="topnav__sister" href="https://hojin12312.github.io/llm-field-notes/">자매편 · 개발자용</a> <button class="theme-toggle" id="theme-toggle" aria-label="테마 전환"> <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path> </svg> <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="12" cy="12" r="4"></circle> <line x1="12" y1="2" x2="12" y2="5"></line> <line x1="12" y1="19" x2="12" y2="22"></line> <line x1="4.93" y1="4.93" x2="7.05" y2="7.05"></line> <line x1="16.95" y1="16.95" x2="19.07" y2="19.07"></line> <line x1="2" y1="12" x2="5" y2="12"></line> <line x1="19" y1="12" x2="22" y2="12"></line> <line x1="4.93" y1="19.07" x2="7.05" y2="16.95"></line> <line x1="16.95" y1="7.05" x2="19.07" y2="4.93"></line> </svg> </button> </div> </nav> <main>  <article> <header class="chapter-header"> <div class="chapter-header__num">CHAPTER 01</div> <h1 class="chapter-header__title">다음 단어 맞추기 게임</h1> <p class="chapter-header__sub">ChatGPT 의 본질은 한 단어씩 찍는 일</p> </header> <div class="prose"> <h1 id="01-다음-단어-맞추기-게임">01. 다음 단어 맞추기 게임</h1>
+<p>사실 ChatGPT 는 다음에 올 단어를 찍는 게임만 해요. 정말 그게 다예요.</p>
+<p>여러 권의 책, 수많은 논문, 박사 학위, 노벨상 — 인공지능이라는 화려한 수식어 뒤에 숨어 있는 본질은 의외로 단순합니다. 한 단어 보고, 그 다음 단어 맞추기. 다시 그 둘을 보고, 그 다음 단어 맞추기. 끝없이 반복. 그게 전부예요.</p>
+<p>이 한 문장만 잡고 가면 이 글의 절반은 이미 이해하신 거예요.</p>
+<h2 id="휴대폰-자판이-하는-일">휴대폰 자판이 하는 일</h2>
+<p>여러분이 카톡을 쓸 때 자판 위쪽에 작은 글자들이 떠 있는 걸 본 적 있으실 거예요. "안녕" 을 치면 옆에 "하세요" 가 뜨고, "오늘" 을 치면 "날씨가" 가 뜨고. 휴대폰이 여러분의 다음 단어를 짐작해서 미리 띄워두는 겁니다. 우리는 그게 너무 익숙해서 신기하다고 느끼지도 않아요.</p>
+<p>ChatGPT 가 하는 일은 이것의 거대한 친척이에요. 정말로 친척. 더 똑똑해 보이지만, 본질적으로 같은 일을 합니다. 차이는 <strong>단지 규모</strong>예요.</p>
+<p>휴대폰 자판은 여러분이 자주 쓰는 단어 몇 만 개를 보고 다음을 짐작합니다. ChatGPT 는 인터넷에 있는 거의 모든 글을 보고 다음을 짐작해요. 휴대폰은 여러분의 카톡을 본 거고, ChatGPT 는 위키백과·논문·소설·신문·블로그·매뉴얼·시집·코드까지 본 거예요.</p>
+<pre class="astro-code astro-code-themes github-light github-dark-dimmed" style="background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>[자료의 양]</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>휴대폰 자판   ▏                              여러분이 친 단어 몇 만 개</span></span>
+<span class="line"><span>LLM           ████████████████████████      인터넷의 거의 모든 글</span></span>
+<span class="line"><span>                                              ↑ 양이 어느 선을 넘는 순간</span></span>
+<span class="line"><span>                                                "흉내" 가 "이해" 처럼 보여요</span></span></code></pre>
+<p>양이 다르면 질이 다르게 보입니다. 양이 어느 선을 넘어가는 순간, 우리는 그것을 "흉내" 가 아니라 "이해" 라고 부르고 싶어집니다. 그게 ChatGPT 를 보며 "아 얘 똑똑하네" 라고 느끼게 만드는 마법의 정체예요.</p>
+<h2 id="llm-이라는-이름의-정체">LLM 이라는 이름의 정체</h2>
+<p>이런 모델을 통틀어 <strong>LLM</strong>(Large Language Model, 대규모 언어 모델) 이라고 불러요. 이름 그대로예요.</p>
+<ul>
+<li><em>Large</em> — 크다. 모델 안에 숫자가 수천억 개 들어 있어요. 정확히 어떤 숫자들인지는 뒤에서 풀어드릴게요.</li>
+<li><em>Language</em> — 언어. 글자, 단어, 문장.</li>
+<li><em>Model</em> — 모델. 어떤 패턴을 따라 하는 흉내쟁이.</li>
+</ul>
+<p>세 단어를 합치면 "엄청 큰 언어 흉내쟁이". 그게 다예요. 화려한 정의는 없습니다.</p>
+<h2 id="그래서-어떻게-그렇게-그럴듯해-보일까">그래서 어떻게 그렇게 그럴듯해 보일까</h2>
+<p>여기서 자연스러운 의문이 듭니다. "다음 단어 맞추기만 하는데 왜 사람처럼 답을 해?"</p>
+<p>이렇게 생각해보세요. 누가 평생 책을 만 권 읽었다고 상상해보세요. 그 사람에게 "뉴턴은 사과가 떨어지는 걸 보고 어떻게 했을까요?" 라고 물었더니 "만유인력" 이라는 단어를 떠올렸다면, 우리는 "아 이 사람 물리학을 아네" 라고 말하지 "다음 단어를 잘 맞췄네" 라고 하진 않잖아요.</p>
+<p>ChatGPT 가 하는 일도 마찬가지예요. 학습한 글의 양이 너무 많아서, 다음 단어를 충실히 맞추다 보면 결국 우리가 보기엔 "이해하고 있는 것처럼" 보이는 거예요. 단어 하나하나의 정확한 선택이 모여서 한 문장이 되고, 한 문장이 모여서 그럴듯한 답변이 되니까요.</p>
+<h2 id="깜짝-놀랄-만한-한-가지">깜짝 놀랄 만한 한 가지</h2>
+<p>여기서 보너스로 하나 알아두시면 좋아요. <strong>ChatGPT 는 자기가 어떤 답을 할지 미리 알고 있지 않아요.</strong></p>
+<p>여러분이 질문을 보내면, ChatGPT 는 첫 단어를 하나 만들고, 그 첫 단어를 다시 자기 입력으로 받아서 두 번째 단어를 만들고, 그 둘을 다시 입력으로 받아서 세 번째 단어를 만듭니다. 매 순간 한 발 앞만 보고 있어요.</p>
+<p>그림으로 보면 이렇게 생겼어요.</p>
+<div class="mermaid">flowchart LR
+    A["지금까지 쓰인 모든 글"] --> B["ChatGPT"]
+    B --> C["다음 한 토큰"]
+    C -. 이어붙임 .-> A</div>
+<p>회차별로 보면 이런 식이에요.</p>
+<ul>
+<li>1회차: <code>"오늘 날씨가"</code> → <code>좋</code></li>
+<li>2회차: <code>"오늘 날씨가 좋"</code> → <code>네</code></li>
+<li>3회차: <code>"오늘 날씨가 좋네"</code> → <code>요</code></li>
+<li>4회차: <code>"오늘 날씨가 좋네요"</code> → <code>,</code></li>
+<li>5회차: <code>"오늘 날씨가 좋네요,"</code> → <code>빨래</code></li>
+<li>6회차: <code>"오늘 날씨가 좋네요, 빨래"</code> → <code>하기</code></li>
+<li>...</li>
+</ul>
+<p>매 단계에서 ChatGPT 가 하는 일은 똑같아요. <strong>지금까지 쓰인 모든 글자를 입력으로 받아서, 그 다음에 올 한 조각을 짐작.</strong> 짐작이 끝나면 그걸 입력 끝에 이어 붙이고, 같은 일을 또 반복. "이 답을 멋있게 마무리해야지" 같은 큰 그림은 없어요. 그저 다음 발자국만 찍고 있을 뿐이에요.</p>
+<p>그런데도 결국 답이 그럴듯하게 마무리된다는 것 — 이게 이 이야기의 진짜 신기한 부분입니다. 한 발씩 찍는 발자국이 모여서 어쩌다 보니 길이 되어버린 거예요.</p>
+<h2 id="비유에는-한계가-있어요">비유에는 한계가 있어요</h2>
+<p>휴대폰 자판 비유로 시작했지만, 정직하게 말씀드리면 ChatGPT 는 휴대폰 자판이 아닙니다. 휴대폰 자판은 "이 사람이 자주 친 단어 패턴" 을 외워두는 정도라면, ChatGPT 는 단어들 사이의 의미 관계까지 함께 익혔어요. 그래서 같은 "사과" 라는 글자를 봐도 과일을 말하는지 잘못을 말하는지 구별할 수 있어요. 비유는 출발점이지 도착점이 아니에요. 다음 챕터부터 이 "단어를 본다는 게 정확히 뭔가" 를 천천히 풀어드릴게요.</p>
+<h2 id="한-줄-요약">한 줄 요약</h2>
+<p>ChatGPT 는 다음에 올 단어를 맞추는 거대한 흉내쟁이고, "이해" 처럼 보이는 모든 것은 그 맞추기를 어마어마한 규모로 했을 때 자연스럽게 따라오는 부산물이에요.</p>
+<h2 id="다음-화">다음 화</h2>
+<p>그런데 ChatGPT 가 본다는 "단어" — 그게 정말 우리가 아는 단어일까요? 한국어로 "사과" 라고 입력하면 컴퓨터 안에서는 그게 어떻게 "사과" 가 되는 걸까요? 사실, 우리가 아는 단어가 아니에요.</p>
+<p><a href="/into-the-latent-space/chapters/02-tokens">02화 — 토큰: AI 가 보는 세상의 단위</a></p> </div> <nav class="chapter-nav"> <a class="chapter-nav__item" href="/into-the-latent-space/chapters/00-prologue"> <span class="chapter-nav__label">← 이전 화</span> <span class="chapter-nav__title">00. 들어가며</span> </a> <a class="chapter-nav__item chapter-nav__item--next" href="/into-the-latent-space/chapters/02-tokens"> <span class="chapter-nav__label">다음 화 →</span> <span class="chapter-nav__title">02. 토큰</span> </a> </nav> </article>  </main> <footer class="site-footer"> <p>
+© 2026 hojin12312 · CC BY-NC-SA 4.0 ·
+<a href="https://github.com/hojin12312/into-the-latent-space" target="_blank" rel="noopener">GitHub</a> ·
+<a href="https://hojin12312.github.io/llm-field-notes/">자매편 (개발자용)</a> </p> </footer> <!-- Theme toggle behavior --> <script type="module" src="/into-the-latent-space/_astro/BookLayout.astro_astro_type_script_index_0_lang.Bjw9Ieg0.js"></script> <!-- Reading progress bar (chapter pages only) --> <script type="module">const s=document.getElementById("progress-bar");if(s){const e=()=>{const t=document.documentElement,o=t.scrollTop,n=t.scrollHeight-t.clientHeight,c=n>0?o/n*100:0;s.style.width=c+"%"};window.addEventListener("scroll",e,{passive:!0}),window.addEventListener("resize",e),e()}</script> <!-- Mermaid render + theme-switch + Lightbox for code/diagrams --> <script type="module">const t=document.getElementById("theme-toggle");t?.addEventListener("click",()=>{const e=document.documentElement.dataset.theme==="dark"?"light":"dark";document.documentElement.dataset.theme=e;try{localStorage.setItem("theme",e)}catch{}});</script> </body> </html>

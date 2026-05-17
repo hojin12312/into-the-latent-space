@@ -1,0 +1,34 @@
+<!DOCTYPE html><html lang="ko"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="AI · LLM · 챗봇 · 에이전트 입문 에세이"><meta name="generator" content="Astro v5.18.1"><title>00. 들어가며 — Into the Latent Space</title><!-- Prevent dark-mode flash: run before paint --><script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('theme');
+          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          var theme = stored || (prefersDark ? 'dark' : 'light');
+          document.documentElement.dataset.theme = theme;
+        } catch (e) {
+          document.documentElement.dataset.theme = 'light';
+        }
+      })();
+    </script><link rel="stylesheet" href="/into-the-latent-space/_astro/_slug_.CYQZ5mMh.css"></head> <body> <div class="progress-bar" id="progress-bar"></div> <nav class="topnav"> <a class="topnav__brand" href="/into-the-latent-space">Into the Latent Space</a> <div class="topnav__right"> <a class="topnav__link" href="/into-the-latent-space">차례</a> <a class="topnav__sister" href="https://hojin12312.github.io/llm-field-notes/">자매편 · 개발자용</a> <button class="theme-toggle" id="theme-toggle" aria-label="테마 전환"> <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path> </svg> <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="12" cy="12" r="4"></circle> <line x1="12" y1="2" x2="12" y2="5"></line> <line x1="12" y1="19" x2="12" y2="22"></line> <line x1="4.93" y1="4.93" x2="7.05" y2="7.05"></line> <line x1="16.95" y1="16.95" x2="19.07" y2="19.07"></line> <line x1="2" y1="12" x2="5" y2="12"></line> <line x1="19" y1="12" x2="22" y2="12"></line> <line x1="4.93" y1="19.07" x2="7.05" y2="16.95"></line> <line x1="16.95" y1="7.05" x2="19.07" y2="4.93"></line> </svg> </button> </div> </nav> <main>  <article> <header class="chapter-header"> <div class="chapter-header__num">CHAPTER 00</div> <h1 class="chapter-header__title">들어가며</h1>  </header> <div class="prose"> <h1 id="들어가며-ai-라는-단어-앞에서">들어가며: AI 라는 단어 앞에서</h1>
+<p>여러분은 이미 매일 AI 와 대화하고 있어요. ChatGPT 든, 카카오의 어떤 챗봇이든, 휴대폰 자판의 다음 단어 추천이든 — 우리는 어느 순간 AI 가 일상이 된 시대에 살고 있어요. 그런데 누가 옆에서 "그래서 그게 뭐야?" 라고 물으면 — 한 줄로 답할 수 있나요?</p>
+<p>저는 못 했어요. 한참 동안. AI 라는 단어는 너무 크고, 그 안에 머신러닝·딥러닝·LLM·트랜스포머·파라미터·토큰 같은 말들이 마구 따라붙어서, 어디서부터 시작해야 할지 막막했거든요. 이 글은 그 막막함을 안고 있던 저를 위해 — 그리고 저와 비슷한 자리에 서 있는 분들을 위해 — 쓰여졌어요.</p>
+<h2 id="이-글이-다루는-것">이 글이 다루는 것</h2>
+<p>지금 우리가 일상에서 가장 많이 쓰는 AI — ChatGPT, Claude, Gemini 같은 챗봇 — 이 어떻게 동작하는지 한 챕터씩 풀어드려요. 처음에는 가장 작은 부품 — "AI 가 사실 다음 단어를 맞추는 게임을 한다" 는 충격적 단순함 — 부터 시작해서, 거기서 한 발씩 위로 올라가요. 토큰, 학습, 추론, 컨텍스트, 환각, 길들임, 프롬프트, 에이전트. 끝에 가면 우리는 같이 — AI 가 무엇을 할 수 있고, 무엇을 못 하는지를 정직하게 보게 될 거예요.</p>
+<h2 id="이-글이-다루지-않는-것">이 글이 다루지 않는 것</h2>
+<p>수식은 없어요. 코드도 없어요. "딥러닝" 이라는 단어를 본문에서 풀어 쓰지도 않아요. 이미지 생성 AI(미드저니·달리·스테이블 디퓨전), 음성 AI, 자율주행, 추천 시스템 — 이런 다른 AI 갈래들도 다루지 않아요. 처음부터 모든 걸 다 보려 하면 어느 것도 또렷이 보이지 않거든요. 이 글은 챗봇과 그 안의 LLM 에 한정해서, 깊지 않게 그러나 정직하게 — 12편 분량의 길을 같이 걸어요.</p>
+<h2 id="누구를-위해-썼나요">누구를 위해 썼나요</h2>
+<ul>
+<li>ChatGPT 를 한두 번 써봤지만 "이게 진짜 뭐 하는 건지" 궁금하셨던 분</li>
+<li>친구가 AI 이야기를 할 때 끄덕이긴 하지만 속으로는 갸웃했던 분</li>
+<li>문과 출신이지만 기술의 바깥 얼개 정도는 알아두고 싶은 분</li>
+<li>아이에게 "AI 가 뭐야?" 라는 질문을 받고 답이 막혔던 분</li>
+</ul>
+<p>엔지니어나 ML 연구자분들에게는 이 글이 너무 단순할 거예요. 그쪽 분들에게는 자매편인 <a href="https://github.com/hojin12312/llm-field-notes"><code>llm-field-notes</code></a> 를 권해드려요.</p>
+<h2 id="한-가지-약속">한 가지 약속</h2>
+<p>저는 이 글에서 비유를 자주 쓸 거예요. 끝말잇기, 휴대폰 자판, 룰렛, 도서관, 알바생, 강아지 훈련, 신입사원. 모든 비유는 출발점이지 도착점이 아니에요. 비유 직후에는 항상 한 줄 — "정확히는 이런 차이가 있어요" — 을 덧붙일게요. 잘못된 멘탈 모델이 굳지 않게 하기 위해서예요.</p>
+<p>자, 이제 시작해볼까요. 첫 장의 첫 문장은 — 충격적 단순함부터예요.</p>
+<h2 id="다음-화">다음 화</h2>
+<p><a href="/into-the-latent-space/chapters/01-next-word-game">01화 — 다음 단어 맞추기 게임</a></p> </div> <nav class="chapter-nav"> <a class="chapter-nav__item" href="/into-the-latent-space"> <span class="chapter-nav__label">← 차례</span> <span class="chapter-nav__title">처음으로</span> </a> <a class="chapter-nav__item chapter-nav__item--next" href="/into-the-latent-space/chapters/01-next-word-game"> <span class="chapter-nav__label">다음 화 →</span> <span class="chapter-nav__title">01. 다음 단어 맞추기 게임</span> </a> </nav> </article>  </main> <footer class="site-footer"> <p>
+© 2026 hojin12312 · CC BY-NC-SA 4.0 ·
+<a href="https://github.com/hojin12312/into-the-latent-space" target="_blank" rel="noopener">GitHub</a> ·
+<a href="https://hojin12312.github.io/llm-field-notes/">자매편 (개발자용)</a> </p> </footer> <!-- Theme toggle behavior --> <script type="module" src="/into-the-latent-space/_astro/BookLayout.astro_astro_type_script_index_0_lang.Bjw9Ieg0.js"></script> <!-- Reading progress bar (chapter pages only) --> <script type="module">const s=document.getElementById("progress-bar");if(s){const e=()=>{const t=document.documentElement,o=t.scrollTop,n=t.scrollHeight-t.clientHeight,c=n>0?o/n*100:0;s.style.width=c+"%"};window.addEventListener("scroll",e,{passive:!0}),window.addEventListener("resize",e),e()}</script> <!-- Mermaid render + theme-switch + Lightbox for code/diagrams --> <script type="module">const t=document.getElementById("theme-toggle");t?.addEventListener("click",()=>{const e=document.documentElement.dataset.theme==="dark"?"light":"dark";document.documentElement.dataset.theme=e;try{localStorage.setItem("theme",e)}catch{}});</script> </body> </html>

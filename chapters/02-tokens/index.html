@@ -1,0 +1,51 @@
+<!DOCTYPE html><html lang="ko"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="AI 가 보는 세상의 단위"><meta name="generator" content="Astro v5.18.1"><title>02. 토큰 — Into the Latent Space</title><!-- Prevent dark-mode flash: run before paint --><script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('theme');
+          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          var theme = stored || (prefersDark ? 'dark' : 'light');
+          document.documentElement.dataset.theme = theme;
+        } catch (e) {
+          document.documentElement.dataset.theme = 'light';
+        }
+      })();
+    </script><link rel="stylesheet" href="/into-the-latent-space/_astro/_slug_.CYQZ5mMh.css"></head> <body> <div class="progress-bar" id="progress-bar"></div> <nav class="topnav"> <a class="topnav__brand" href="/into-the-latent-space">Into the Latent Space</a> <div class="topnav__right"> <a class="topnav__link" href="/into-the-latent-space">차례</a> <a class="topnav__sister" href="https://hojin12312.github.io/llm-field-notes/">자매편 · 개발자용</a> <button class="theme-toggle" id="theme-toggle" aria-label="테마 전환"> <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path> </svg> <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="12" cy="12" r="4"></circle> <line x1="12" y1="2" x2="12" y2="5"></line> <line x1="12" y1="19" x2="12" y2="22"></line> <line x1="4.93" y1="4.93" x2="7.05" y2="7.05"></line> <line x1="16.95" y1="16.95" x2="19.07" y2="19.07"></line> <line x1="2" y1="12" x2="5" y2="12"></line> <line x1="19" y1="12" x2="22" y2="12"></line> <line x1="4.93" y1="19.07" x2="7.05" y2="16.95"></line> <line x1="16.95" y1="7.05" x2="19.07" y2="4.93"></line> </svg> </button> </div> </nav> <main>  <article> <header class="chapter-header"> <div class="chapter-header__num">CHAPTER 02</div> <h1 class="chapter-header__title">토큰</h1> <p class="chapter-header__sub">AI 가 보는 세상의 단위</p> </header> <div class="prose"> <h1 id="02-토큰-ai-가-보는-세상의-단위">02. 토큰: AI 가 보는 세상의 단위</h1>
+<p>ChatGPT 한테 "딸기(strawberry) 에 알파벳 r 이 몇 개 있어?" 라고 물어보세요. 답이 종종 틀려요. 모를 일이 아닌 것 같은데, 왜 틀릴까요? 답은 의외로 단순해요. <strong>AI 는 우리가 보는 글자를 보고 있지 않거든요.</strong></p>
+<p>지난 화에서 우리는 ChatGPT 가 "다음 단어를 맞추는 게임" 을 한다고 했어요. 그런데 정확히는 — "다음 단어" 가 아니라 "다음 <strong>토큰</strong>" 이에요. 그게 뭐냐고요?</p>
+<h2 id="토큰이란-무엇인가">토큰이란 무엇인가</h2>
+<p><strong>토큰</strong>(token, AI 가 한 번에 처리하는 글자 덩어리) 은 글자보다 크고 단어보다 작거나 같은, 어딘가 이상한 단위예요. 단어 한 개일 때도 있고, 단어의 일부분일 때도 있고, 가끔 한 글자일 때도 있어요.</p>
+<p>영어 단어 "strawberry" 는 ChatGPT 안에서 보통 세 조각으로 쪼개져요.</p>
+<pre class="astro-code astro-code-themes github-light github-dark-dimmed" style="background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>"strawberry"  →  [ "str" ] [ "aw" ] [ "berry" ]</span></span></code></pre>
+<p>ChatGPT 는 "strawberry" 라는 단어를 한 통째로 보지 않고, "str", "aw", "berry" 라는 세 개의 모자이크 조각으로 받아들여요. 그러니까 "이 단어 안에 r 이 몇 개야" 같은 질문은 — ChatGPT 한테는 마치 우리에게 "이 그림 안에 점이 몇 개야" 를 묻는 것과 비슷해져요. 보고 있는 단위가 다른 거예요.</p>
+<h2 id="한국어는-어떻게-쪼개질까">한국어는 어떻게 쪼개질까</h2>
+<p>한국어는 더 흥미로워요. "사과나무" 는 보통 이렇게 쪼개져요.</p>
+<pre class="astro-code astro-code-themes github-light github-dark-dimmed" style="background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>영어:    "I love strawberry"</span></span>
+<span class="line"><span>         →  [ "I" ] [ " love" ] [ " straw" ] [ "berry" ]</span></span>
+<span class="line"><span>         (4 토큰)</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>한국어:  "나는 사과나무를 좋아해"</span></span>
+<span class="line"><span>         →  [ "나" ] [ "는" ] [ " 사" ] [ "과" ] [ "나" ] [ "무" ] [ "를" ] [ " 좋" ] [ "아" ] [ "해" ]</span></span>
+<span class="line"><span>         (10 토큰)</span></span></code></pre>
+<p>거의 한 글자에 한 토큰. 영어처럼 의미 있는 묶음으로 잘 안 묶여요. 왜 그럴까요? ChatGPT 같은 모델들은 처음에 영어 문서를 어마어마하게 학습했어요. 자주 본 글자 패턴은 큰 덩어리로 묶여서 한 토큰이 되고, 덜 본 글자는 작게 쪼개져 있어요. 한국어는 영어만큼 학습되지 않은 언어라서, 글자 하나하나를 따로 보게 되는 경향이 있어요. 같은 의미를 전달하는데 토큰 수가 두 배 넘게 들어가요.</p>
+<h2 id="토큰은-청구서의-단위예요">토큰은 청구서의 단위예요</h2>
+<p>여기서 일상적이면서도 충격적인 사실 하나. ChatGPT 같은 AI 를 <strong>API</strong>(서버에 직접 요청해서 쓰는 방식) 로 쓰면, <strong>토큰 단위로 돈을 매겨요.</strong> 글자 수가 아니라 토큰 수예요.</p>
+<p>영어 "Hello, how are you?" 는 약 6개 토큰. 같은 의미의 한국어 "안녕하세요, 어떻게 지내세요?" 는 약 14개 토큰. <strong>한국어가 두 배 이상 비싸요.</strong> 같은 말을 해도요. 우리는 같은 의미를 더 적은 글자로 쓰는데, 모델 입장에서는 한국어가 훨씬 잘게 쪼개진 모자이크니까 처리할 양이 더 많은 거예요. 사용량으로 따지면 한국어 사용자는 영어 사용자보다 비싼 요금을 무는 셈이 돼요.</p>
+<h2 id="그래서-r-개수를-못-세요">그래서 r 개수를 못 세요</h2>
+<p>이제 처음 질문으로 돌아와볼까요. "strawberry 에 r 이 몇 개?"</p>
+<p>ChatGPT 는 "strawberry" 가 들어왔을 때 [ "str" ] [ "aw" ] [ "berry" ] 라는 세 조각으로 본다고 했죠. 그 안에 들어 있는 알파벳 r 의 개수를 세려면, 각 조각을 다시 글자 단위로 헤집어 봐야 해요. 그런데 ChatGPT 는 그런 식으로 학습되지 않았어요. <strong>토큰 사이의 관계는 잘 이해하지만, 토큰 안에 어떤 글자가 몇 개 있는지 세는 일은 의외로 잘 못해요.</strong></p>
+<p>그래서 "strawberry 에 r 이 몇 개?" 라는 질문에 자신 있게 "두 개" 라고 답하는 일이 종종 일어나요. (정답은 세 개. ChatGPT 는 종종 두 개로 헷갈려요.) 글자를 한 번도 직접 본 적이 없는 존재가 글자 수를 세는 일 — 비유하자면, 픽셀로 그림을 보는 사람한테 그림 안에 든 잉크 분자를 세달라고 하는 것과 비슷해요.</p>
+<p>이 흐름을 그림으로 보면 이래요.</p>
+<div class="mermaid">flowchart LR
+    A["우리가 쓴 글자&#x3C;br/>s-t-r-a-w-b-e-r-r-y"] --> B["토큰으로 쪼개기"]
+    B --> C["str / aw / berry&#x3C;br/>AI 가 실제로 보는 단위"]
+    C --> D["글자 r 은 조각 안에&#x3C;br/>묻혀서 셀 수 없음"]</div>
+<h2 id="비유에는-한계가-있어요">비유에는 한계가 있어요</h2>
+<p>토큰을 "모자이크 조각" 으로 비유했지만, 사실 토큰은 단순한 조각이 아니에요. 토큰 하나하나는 어떤 의미를 담고 있는 좌표 같은 것에 가까워요(이 좌표 이야기는 마지막 화에서 풀어드릴게요). 지금 단계에서는 그냥 "AI 가 한 번에 처리하는 작은 덩어리" 정도로만 잡아두시면 충분해요. 다음 챕터에서 이 모자이크 조각들이 어떻게 의미를 갖게 됐는지 — 그러니까 학습이라는 과정 — 을 풀어드릴게요.</p>
+<h2 id="한-줄-요약">한 줄 요약</h2>
+<p>ChatGPT 는 우리가 보는 글자가 아니라 "토큰" 이라는 모자이크 조각 단위로 글을 보고, 그래서 한국어는 영어보다 더 잘게 쪼개져 비싸지고, 글자 수 세기도 잘 못해요.</p>
+<h2 id="다음-화">다음 화</h2>
+<p>이 모자이크 조각들이 어떻게 의미를 갖게 됐을까요? 누가 가르쳤기에, AI 는 "사과" 다음에 "는 빨갛다" 가 자주 온다는 걸 알게 된 걸까요?</p>
+<p><a href="/into-the-latent-space/chapters/03-training">03화 — 학습: 도서관을 통째로 읽는 법</a></p> </div> <nav class="chapter-nav"> <a class="chapter-nav__item" href="/into-the-latent-space/chapters/01-next-word-game"> <span class="chapter-nav__label">← 이전 화</span> <span class="chapter-nav__title">01. 다음 단어 맞추기 게임</span> </a> <a class="chapter-nav__item chapter-nav__item--next" href="/into-the-latent-space/chapters/03-training"> <span class="chapter-nav__label">다음 화 →</span> <span class="chapter-nav__title">03. 학습</span> </a> </nav> </article>  </main> <footer class="site-footer"> <p>
+© 2026 hojin12312 · CC BY-NC-SA 4.0 ·
+<a href="https://github.com/hojin12312/into-the-latent-space" target="_blank" rel="noopener">GitHub</a> ·
+<a href="https://hojin12312.github.io/llm-field-notes/">자매편 (개발자용)</a> </p> </footer> <!-- Theme toggle behavior --> <script type="module" src="/into-the-latent-space/_astro/BookLayout.astro_astro_type_script_index_0_lang.Bjw9Ieg0.js"></script> <!-- Reading progress bar (chapter pages only) --> <script type="module">const s=document.getElementById("progress-bar");if(s){const e=()=>{const t=document.documentElement,o=t.scrollTop,n=t.scrollHeight-t.clientHeight,c=n>0?o/n*100:0;s.style.width=c+"%"};window.addEventListener("scroll",e,{passive:!0}),window.addEventListener("resize",e),e()}</script> <!-- Mermaid render + theme-switch + Lightbox for code/diagrams --> <script type="module">const t=document.getElementById("theme-toggle");t?.addEventListener("click",()=>{const e=document.documentElement.dataset.theme==="dark"?"light":"dark";document.documentElement.dataset.theme=e;try{localStorage.setItem("theme",e)}catch{}});</script> </body> </html>

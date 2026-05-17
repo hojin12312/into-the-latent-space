@@ -1,0 +1,63 @@
+<!DOCTYPE html><html lang="ko"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="말 거는 법"><meta name="generator" content="Astro v5.18.1"><title>08. 프롬프트 — Into the Latent Space</title><!-- Prevent dark-mode flash: run before paint --><script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('theme');
+          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          var theme = stored || (prefersDark ? 'dark' : 'light');
+          document.documentElement.dataset.theme = theme;
+        } catch (e) {
+          document.documentElement.dataset.theme = 'light';
+        }
+      })();
+    </script><link rel="stylesheet" href="/into-the-latent-space/_astro/_slug_.CYQZ5mMh.css"></head> <body> <div class="progress-bar" id="progress-bar"></div> <nav class="topnav"> <a class="topnav__brand" href="/into-the-latent-space">Into the Latent Space</a> <div class="topnav__right"> <a class="topnav__link" href="/into-the-latent-space">차례</a> <a class="topnav__sister" href="https://hojin12312.github.io/llm-field-notes/">자매편 · 개발자용</a> <button class="theme-toggle" id="theme-toggle" aria-label="테마 전환"> <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path> </svg> <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="12" cy="12" r="4"></circle> <line x1="12" y1="2" x2="12" y2="5"></line> <line x1="12" y1="19" x2="12" y2="22"></line> <line x1="4.93" y1="4.93" x2="7.05" y2="7.05"></line> <line x1="16.95" y1="16.95" x2="19.07" y2="19.07"></line> <line x1="2" y1="12" x2="5" y2="12"></line> <line x1="19" y1="12" x2="22" y2="12"></line> <line x1="4.93" y1="19.07" x2="7.05" y2="16.95"></line> <line x1="16.95" y1="7.05" x2="19.07" y2="4.93"></line> </svg> </button> </div> </nav> <main>  <article> <header class="chapter-header"> <div class="chapter-header__num">CHAPTER 08</div> <h1 class="chapter-header__title">프롬프트</h1> <p class="chapter-header__sub">말 거는 법</p> </header> <div class="prose"> <h1 id="08-프롬프트-부탁의-기술">08. 프롬프트: 부탁의 기술</h1>
+<p>"심호흡하고 단계별로 생각해줘." 한때 인터넷에 떠돌던 프롬프트 팁이에요. 진짜 같지도 않은 한 마디. 이게 정말 ChatGPT 의 답을 더 좋게 만들까요? 농담 같지만 — <strong>진짜로 그래요.</strong> 데이터로 측정된 효과예요. 어떻게 그런 일이 가능한지가 이 챕터의 주제예요.</p>
+<h2 id="프롬프트--부탁의-기술">프롬프트 = 부탁의 기술</h2>
+<p><strong>프롬프트</strong>(prompt, 우리가 AI 에게 입력하는 모든 글) 는 그냥 질문이 아니에요. 어떻게 묻느냐에 따라 답의 품질이 극적으로 달라지는, 일종의 부탁의 기술이에요.</p>
+<p>이렇게 생각해보세요. 여러분이 처음 본 카페에 알바생을 한 명 빌렸는데, 이 알바생이 — 굉장히 똑똑해요. 박사 학위 두 개. 십수 개 언어 능통. 그런데 <strong>이 카페에 처음 와서 우리가 누군지, 어떤 일을 시킬 건지, 손님이 어떤 사람인지 전혀 몰라요.</strong> "주문받아 줘" 만 던지면, 알바생은 자기가 아는 어떤 카페의 매뉴얼대로 답할 거예요. 그 답이 우리 카페와 맞을 수도, 안 맞을 수도 있죠.</p>
+<p>ChatGPT 가 그런 알바생이에요. 똑똑하지만, 맥락을 몰라요. 우리가 그 맥락을 잘 깔아줄수록, 답이 우리 의도에 가까워져요.</p>
+<h2 id="잘-부탁하는-네-가지">잘 부탁하는 네 가지</h2>
+<p>좋은 프롬프트에는 보통 다음 네 가지가 들어가요.</p>
+<pre class="astro-code astro-code-themes github-light github-dark-dimmed" style="background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>나쁜 프롬프트:</span></span>
+<span class="line"><span>  "이메일 답장 써줘"</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>좋은 프롬프트:</span></span>
+<span class="line"><span>  "당신은 친절한 고객 응대 매니저입니다.                  ← (1) 역할</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>  아래는 화난 고객이 보낸 메일입니다.                     ← (2) 맥락</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>  -------- 메일 내용 --------</span></span>
+<span class="line"><span>  저는 어제 주문한 상품이 ...</span></span>
+<span class="line"><span>  --------------------------</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>  참고로 이런 식의 답이 좋은 예입니다:                    ← (3) 예시</span></span>
+<span class="line"><span>  '안녕하세요 고객님, 먼저 사과드리며…'</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>  답변은 200자 이내, 정중한 존댓말로,                     ← (4) 출력 형식</span></span>
+<span class="line"><span>  사과 → 원인 설명 → 해결책 순으로."</span></span></code></pre>
+<p>차이는 단순해요. 같은 알바생인데, 한쪽에는 "주문받아 줘" 라고만 던졌고, 한쪽에는 우리 카페의 분위기·메뉴·손님 응대 매뉴얼·말투까지 다 알려준 거예요. 결과가 다를 수밖에 없죠.</p>
+<h2 id="단계별로-생각해줘-의-정체">"단계별로 생각해줘" 의 정체</h2>
+<p>이 네 가지에 더해서, 한 가지 마법 같은 한 마디가 있어요. <strong>"단계별로 생각해줘"</strong> 또는 <strong>"먼저 풀이 과정을 적고 답을 내줘"</strong>.</p>
+<p>이 한 마디가 들어가면 어려운 수학 문제, 복잡한 추론 문제에서 정답률이 눈에 띄게 올라가요. 왜 그럴까요? 4화에서 본 룰렛이 이유예요.</p>
+<p>ChatGPT 는 한 토큰씩 룰렛으로 뽑잖아요. 그래서 "정답은 42 입니다" 같이 짧은 답을 바로 내려고 하면, 답으로 가는 풀이 과정이 모델 안에서 펼쳐질 시간이 없어요. 룰렛 한두 번 돌리고 끝. 그런데 "단계별로 생각해줘" 라고 하면 — 모델은 풀이 과정을 글로 풀어 쓰면서 답까지 가요. <strong>그 풀이가 다음 룰렛의 입력이 되고, 또 그 다음 룰렛의 입력이 되면서 — 모델이 자기 생각을 자기 입력으로 다시 받게 돼요.</strong> 결과적으로 답이 더 정확해져요.</p>
+<p>이걸 <strong>Chain-of-Thought</strong>(생각의 사슬, 모델이 풀이 과정을 한 단계씩 글로 풀어 쓰면서 답으로 가는 방식) 라고 불러요. 사람도 비슷해요. 머릿속에서만 풀려 하면 어렵지만, 종이에 풀이를 적어 가면 훨씬 쉬워지잖아요. 모델한테는 자기가 출력한 글이 곧 자기 종이예요.</p>
+<div class="mermaid">flowchart LR
+    Q["질문"] --> M["모델"]
+    M --> S1["풀이 한 줄"]
+    S1 -. 자기 출력이&#x3C;br/>자기 입력으로 .-> M
+    M --> S2["풀이 다음 줄"]
+    S2 -. 다시 .-> M
+    M --> A["정답"]</div>
+<h2 id="깜짝-놀랄-만한-한-가지">깜짝 놀랄 만한 한 가지</h2>
+<p>이 "잘 부탁하는 기술" 이 한때 너무 중요해서, <strong>프롬프트 엔지니어</strong>(Prompt Engineer) 라는 직업이 만들어졌어요. 2023년경 미국 일부 회사에서는 시니어 프롬프트 엔지니어 연봉이 한화 기준 몇 억대였어요. 코드 한 줄 안 짜고, 종일 ChatGPT 에게 잘 부탁하는 방법을 연구하는 직업이에요.</p>
+<p>지금은 모델이 더 똑똑해지면서 이 직업의 인기가 살짝 식었지만 — 핵심은 그대로예요. <strong>같은 모델, 같은 질문이라도, 어떻게 묻느냐에 따라 답의 가치가 100배까지 달라질 수 있어요.</strong> 우리 일상의 부탁에도 같은 원리가 적용돼요. 알바생한테 "그거 좀 해줘" 던지면 그거 좀 한 결과가 오고, 정성스럽게 맥락과 기대치를 설명하면 — 정성스러운 결과가 와요.</p>
+<h2 id="비유에는-한계가-있어요">비유에는 한계가 있어요</h2>
+<p>"알바생" 비유는 왜 맥락이 중요한지를 보여주지만, 알바생은 우리가 한 번 알려주면 그 다음부터 기억하잖아요. ChatGPT 는 매 새 대화마다 처음 본 알바생이에요. 5화에서 본 단기 기억의 한계 때문에, 이 알바생은 매번 "처음 보는 카페에 도착한" 상태예요. 그래서 잘 부탁하는 법은 일회성 기술이 아니라 — 매번 새롭게 깔아주는 일이 돼요. 어쩌면 그래서 좋은 프롬프트는 "한 번 작성해서 저장해두고 반복 사용" 하는 형태로 진화했는지 모르겠어요.</p>
+<h2 id="한-줄-요약">한 줄 요약</h2>
+<p>ChatGPT 에게 잘 부탁하는 일은 단순한 매너가 아니라 답의 품질을 좌우하는 진짜 기술이고, "단계별로 생각해줘" 같은 한 마디가 통하는 건 모델이 자기 풀이를 자기 입력으로 다시 받기 때문이에요.</p>
+<h2 id="다음-화">다음 화</h2>
+<p>여기까지 본 ChatGPT 는 글만 쓰는 존재였어요. 그런데 같은 AI 인데 — 진짜로 우리 컴퓨터에서 파일을 열고 명령어를 실행하는 종류가 있어요. 이름하여 에이전트. 손과 발이 생긴 AI 의 이야기예요.</p>
+<p><a href="/into-the-latent-space/chapters/09-agents">09화 — 에이전트: 손과 발이 생긴 AI</a></p> </div> <nav class="chapter-nav"> <a class="chapter-nav__item" href="/into-the-latent-space/chapters/07-rlhf"> <span class="chapter-nav__label">← 이전 화</span> <span class="chapter-nav__title">07. 사람의 피드백</span> </a> <a class="chapter-nav__item chapter-nav__item--next" href="/into-the-latent-space/chapters/09-agents"> <span class="chapter-nav__label">다음 화 →</span> <span class="chapter-nav__title">09. 에이전트</span> </a> </nav> </article>  </main> <footer class="site-footer"> <p>
+© 2026 hojin12312 · CC BY-NC-SA 4.0 ·
+<a href="https://github.com/hojin12312/into-the-latent-space" target="_blank" rel="noopener">GitHub</a> ·
+<a href="https://hojin12312.github.io/llm-field-notes/">자매편 (개발자용)</a> </p> </footer> <!-- Theme toggle behavior --> <script type="module" src="/into-the-latent-space/_astro/BookLayout.astro_astro_type_script_index_0_lang.Bjw9Ieg0.js"></script> <!-- Reading progress bar (chapter pages only) --> <script type="module">const s=document.getElementById("progress-bar");if(s){const e=()=>{const t=document.documentElement,o=t.scrollTop,n=t.scrollHeight-t.clientHeight,c=n>0?o/n*100:0;s.style.width=c+"%"};window.addEventListener("scroll",e,{passive:!0}),window.addEventListener("resize",e),e()}</script> <!-- Mermaid render + theme-switch + Lightbox for code/diagrams --> <script type="module">const t=document.getElementById("theme-toggle");t?.addEventListener("click",()=>{const e=document.documentElement.dataset.theme==="dark"?"light":"dark";document.documentElement.dataset.theme=e;try{localStorage.setItem("theme",e)}catch{}});</script> </body> </html>

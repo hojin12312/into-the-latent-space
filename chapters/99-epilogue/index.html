@@ -1,0 +1,51 @@
+<!DOCTYPE html><html lang="ko"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="latent space 에 닿다"><meta name="generator" content="Astro v5.18.1"><title>99. 나오며 — Into the Latent Space</title><!-- Prevent dark-mode flash: run before paint --><script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('theme');
+          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          var theme = stored || (prefersDark ? 'dark' : 'light');
+          document.documentElement.dataset.theme = theme;
+        } catch (e) {
+          document.documentElement.dataset.theme = 'light';
+        }
+      })();
+    </script><link rel="stylesheet" href="/into-the-latent-space/_astro/_slug_.CYQZ5mMh.css"></head> <body> <div class="progress-bar" id="progress-bar"></div> <nav class="topnav"> <a class="topnav__brand" href="/into-the-latent-space">Into the Latent Space</a> <div class="topnav__right"> <a class="topnav__link" href="/into-the-latent-space">차례</a> <a class="topnav__sister" href="https://hojin12312.github.io/llm-field-notes/">자매편 · 개발자용</a> <button class="theme-toggle" id="theme-toggle" aria-label="테마 전환"> <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path> </svg> <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="12" cy="12" r="4"></circle> <line x1="12" y1="2" x2="12" y2="5"></line> <line x1="12" y1="19" x2="12" y2="22"></line> <line x1="4.93" y1="4.93" x2="7.05" y2="7.05"></line> <line x1="16.95" y1="16.95" x2="19.07" y2="19.07"></line> <line x1="2" y1="12" x2="5" y2="12"></line> <line x1="19" y1="12" x2="22" y2="12"></line> <line x1="4.93" y1="19.07" x2="7.05" y2="16.95"></line> <line x1="16.95" y1="7.05" x2="19.07" y2="4.93"></line> </svg> </button> </div> </nav> <main>  <article> <header class="chapter-header"> <div class="chapter-header__num">CHAPTER 99</div> <h1 class="chapter-header__title">나오며</h1> <p class="chapter-header__sub">latent space 에 닿다</p> </header> <div class="prose"> <h1 id="나오며-latent-space-라는-산책">나오며: latent space 라는 산책</h1>
+<p>이 글의 제목 — "into the latent space" — 의 정체를 마지막에 풀어드린다고 약속드렸죠. 이제 그 약속을 지킬 시간이에요.</p>
+<h2 id="단어들이-사는-동네">단어들이 사는 동네</h2>
+<p>이런 상상을 해보세요. 우리가 알고 있는 모든 단어들 — 사과, 배, 자동차, 비행기, 사랑, 분노, 컴퓨터, 책 — 이 어떤 거대한 공간 안에 점으로 찍혀 있어요. 그 공간 안에서 비슷한 의미의 단어는 가까이 모여 있고, 다른 의미의 단어는 멀리 떨어져 있어요. 그래서 "사과" 와 "배" 는 가까운 동네에 살고, "사과" 와 "비행기" 는 멀리 떨어진 동네에 사는 식이에요.</p>
+<pre class="astro-code astro-code-themes github-light github-dark-dimmed" style="background-color:#fff;--shiki-dark-bg:#22272e;color:#24292e;--shiki-dark:#adbac7; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>  [탈것 동네]</span></span>
+<span class="line"><span>   ● 비행기   ● 자동차</span></span>
+<span class="line"><span>   ● 버스</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span></span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>                       [과일 동네]</span></span>
+<span class="line"><span>                        ● 사과</span></span>
+<span class="line"><span>                        ● 배</span></span>
+<span class="line"><span>                        ● 포도</span></span></code></pre>
+<p>이런 의미 공간을 <strong>latent space</strong>(잠재 공간, 모델 안에 숨어 있는 단어들의 의미 좌표 공간) 라고 불러요. "잠재" 라는 건 — 우리 눈에 직접 보이지 않지만 모델 안에 분명히 존재한다는 뜻이에요.</p>
+<p>이 공간 안에서는 신기한 일도 일어나요. "왕 - 남자 + 여자 = 여왕" 같은 단어 사이의 산수가 가능해요. 각 단어가 좌표라서, 좌표 사이의 빼기와 더하기가 의미 사이의 빼기와 더하기로 자연스럽게 연결돼요. 처음 이 사실이 발견됐을 때 연구자들도 놀랐어요. 사람이 일일이 가르친 적이 없는데, 의미의 기하학이 학습 결과로 자연스럽게 떠올랐거든요.</p>
+<h2 id="학습이-만든-지도">학습이 만든 지도</h2>
+<p>이 공간이 어떻게 생겼냐고요? 누가 그렸냐고요? <strong>3화에서 본 학습이 만든 거예요.</strong> 빈칸 채우기 시험을 수십억 번 반복하다 보면, 모델 안에는 자연스럽게 — "어떤 단어들이 어떤 단어들 옆에 자주 등장하느냐" 의 패턴이 새겨져요. 그 패턴이 결국 단어들의 좌표가 돼요. 누가 일일이 좌표를 그려준 게 아니라 — 글의 흐름이 만든 자연스러운 지도예요.</p>
+<div class="mermaid">flowchart TD
+    A["3화의 빈칸 채우기 시험&#x3C;br/>수십억 번 반복"] --> B["어떤 단어가&#x3C;br/>어떤 단어 옆에 자주 나오나"]
+    B --> C["단어들의 좌표 패턴이&#x3C;br/>자연스럽게 떠오름"]
+    C --> D["latent space&#x3C;br/>(이 글에서 우리가 본 모든 일의 무대)"]</div>
+<p>이 글에서 우리가 본 모든 일들 — 다음 단어 맞추기, 토큰의 모자이크, 룰렛으로 답 뽑기 — 이 사실 모두 이 latent space 안에서의 산책이었어요. ChatGPT 가 답을 만든다는 건 — 이 거대한 의미 공간 안에서 한 점에서 다음 점으로, 또 그 다음 점으로 발걸음을 옮기는 일이에요. 발자국이 모여서 한 문장이 되고, 한 문장이 모여서 그럴듯한 답이 돼요.</p>
+<h2 id="우리가-같이-걸은-길">우리가 같이 걸은 길</h2>
+<p>12편의 본편에서 우리는 같이 이 잠재 공간의 작동 방식을 더듬어왔어요. 이제 돌아보면 — 우리도 모르는 사이 latent space 한가운데까지 들어와 있었어요. 시작은 휴대폰 자판이라는 익숙한 풍경에서 출발했지만, 끝에 와서는 단어들의 좌표 공간을 이야기하고 있어요. 제목 그대로 — 우리는 latent space 안으로 산책을 다녀온 거예요.</p>
+<h2 id="더-깊이-가고-싶은-분께">더 깊이 가고 싶은 분께</h2>
+<p>만약 이 길이 즐거우셨다면, 다음 길도 있어요.</p>
+<ul>
+<li><a href="https://github.com/hojin12312/llm-field-notes"><code>llm-field-notes</code></a>: 같은 저자의 자매편. 개발자·ML 관심층용. KV 캐시, 트랜스포머 추론, 메모리 대역폭, 에이전트 설계 같은 더 기술적인 주제를 다뤄요. 이 글의 비유 위에 한 층 더 깊이 올려놓고 싶으시다면 권해드려요.</li>
+<li>위키백과의 "Transformer (machine learning model)", "Large language model" 항목도 무난한 다음 단계예요.</li>
+<li>이미지 생성 AI 에 관심이 있으시다면, "diffusion model" 이라는 키워드부터 시작해보시면 좋아요. 다음 단어 맞추기와는 또 다른 — 잡음에서 그림을 점점 또렷하게 만들어가는 — 결의 작동 원리예요.</li>
+</ul>
+<h2 id="마지막-한-마디">마지막 한 마디</h2>
+<p>AI 라는 단어는 너무 자주 쓰여서 이제는 슬로건처럼 느껴지기도 해요. 똑똑한 AI, 인류를 대체할 AI, 위험한 AI, 친구가 되어주는 AI. 미디어가 만들어내는 이미지들이에요. 그런데 그 이미지들 뒤에 있는 — 진짜 AI — 는 의외로 단순한 무언가예요. 다음 단어를 맞추는 거대한 흉내쟁이. 잠재 공간 안에서의 통계적 산책. 우리가 만든 글들이 모여 만든 거울.</p>
+<p>이 거울 앞에 우리는 서 있어요. 거울이 우리의 모습을 비춰주고, 그 모습에 우리는 놀라기도 하고, 즐거워하기도 하고, 두려워하기도 해요. 그건 자연스러운 일이에요. 다만 — <strong>거울 앞에 서 있는 우리 자신을 잊지는 마세요.</strong> 거울에 비친 모습이 아무리 인상적이라도, 결국 거울 앞에 서 있는 건 우리예요.</p>
+<p>여기까지 함께 걸어주셔서 고맙습니다. 다음 길에서 또 만나요.</p>
+<p>(끝)</p> </div> <nav class="chapter-nav"> <a class="chapter-nav__item" href="/into-the-latent-space/chapters/12-technical-debt"> <span class="chapter-nav__label">← 이전 화</span> <span class="chapter-nav__title">12. 빌려 쓴 똑똑함</span> </a> <a class="chapter-nav__item chapter-nav__item--next" href="/into-the-latent-space"> <span class="chapter-nav__label">차례 →</span> <span class="chapter-nav__title">다시 처음으로</span> </a> </nav> </article>  </main> <footer class="site-footer"> <p>
+© 2026 hojin12312 · CC BY-NC-SA 4.0 ·
+<a href="https://github.com/hojin12312/into-the-latent-space" target="_blank" rel="noopener">GitHub</a> ·
+<a href="https://hojin12312.github.io/llm-field-notes/">자매편 (개발자용)</a> </p> </footer> <!-- Theme toggle behavior --> <script type="module" src="/into-the-latent-space/_astro/BookLayout.astro_astro_type_script_index_0_lang.Bjw9Ieg0.js"></script> <!-- Reading progress bar (chapter pages only) --> <script type="module">const s=document.getElementById("progress-bar");if(s){const e=()=>{const t=document.documentElement,o=t.scrollTop,n=t.scrollHeight-t.clientHeight,c=n>0?o/n*100:0;s.style.width=c+"%"};window.addEventListener("scroll",e,{passive:!0}),window.addEventListener("resize",e),e()}</script> <!-- Mermaid render + theme-switch + Lightbox for code/diagrams --> <script type="module">const t=document.getElementById("theme-toggle");t?.addEventListener("click",()=>{const e=document.documentElement.dataset.theme==="dark"?"light":"dark";document.documentElement.dataset.theme=e;try{localStorage.setItem("theme",e)}catch{}});</script> </body> </html>
