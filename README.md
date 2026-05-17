@@ -2,6 +2,9 @@
 
 > AI 라는 단어만 들어본 사람을 위한, 챗봇·LLM·에이전트 입문 에세이.
 
+**웹에서 읽기** → [hojin12312.github.io/into-the-latent-space](https://hojin12312.github.io/into-the-latent-space/) — 반응형 + 다크/라이트 모드, 다이어그램 클릭 시 풀스크린 확대.
+**자매편 (개발자용)** → [hojin12312.github.io/llm-field-notes](https://hojin12312.github.io/llm-field-notes/)
+
 당신은 이미 매일 AI 와 대화하고 있어요. 그런데 누가 옆에서 "그래서 그거 어떻게 동작해?" 라고 물으면 — 한 줄로 답할 수 있나요?
 
 이 글은 그 한 줄을 만들어드리는 자료예요. **수식 없고, 코드 없고, "딥러닝"이라는 단어를 쓰지 않고도** 끝까지 읽을 수 있게 썼습니다. 대신 비유가 많아요. 끝말잇기, 도서관, 룰렛, 알바생, 신입사원, 강아지 훈련 — 일상에서 본 적 있는 풍경으로 AI 의 안쪽을 보여드릴게요.
@@ -13,7 +16,7 @@
 - 문과 출신이지만 기술의 바깥 얼개 정도는 알아두고 싶은 분
 - 아이에게 "AI 가 뭐야?" 라는 질문을 받고 답이 막혔던 분
 
-엔지니어·연구자용은 아니에요. 그쪽 분들은 옆자리의 [`llm-field-notes`](https://github.com/hojin12312/llm-field-notes) 가 더 맞으실 거예요.
+엔지니어·연구자용은 아니에요. 그쪽 분들은 옆자리의 [`llm-field-notes`](https://hojin12312.github.io/llm-field-notes/) 가 더 맞으실 거예요.
 
 ## 읽는 법
 
